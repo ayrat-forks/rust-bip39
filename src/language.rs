@@ -86,6 +86,29 @@ impl Language {
 		]
 	}
 
+	/// Returns all words for the specified language
+	pub fn all_words(self) -> &'static [&'static str; 2048] {
+		match self {
+			Language::English => &english::WORDS,
+			#[cfg(feature = "chinese-simplified")]
+			Language::SimplifiedChinese => &chinese_simplified::WORDS,
+			#[cfg(feature = "chinese-traditional")]
+			Language::TraditionalChinese => &chinese_traditional::WORDS,
+			#[cfg(feature = "czech")]
+			Language::Czech => &czech::WORDS,
+			#[cfg(feature = "french")]
+			Language::French => &french::WORDS,
+			#[cfg(feature = "italian")]
+			Language::Italian => &italian::WORDS,
+			#[cfg(feature = "japanese")]
+			Language::Japanese => &japanese::WORDS,
+			#[cfg(feature = "korean")]
+			Language::Korean => &korean::WORDS,
+			#[cfg(feature = "spanish")]
+			Language::Spanish => &spanish::WORDS,
+		}
+	}
+
 	/// The word list for this language.
 	#[inline]
 	pub fn word_list(self) -> &'static [&'static str; 2048] {

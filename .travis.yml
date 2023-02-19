@@ -9,7 +9,7 @@ matrix:
       env: BENCHES=false
     - rust: nightly
       env: BENCHES=true
-    - rust: 1.29.0
+    - rust: 1.67.1
       env: BENCHES=false
 
 before_install:
