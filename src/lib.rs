@@ -416,12 +416,12 @@ impl Mnemonic {
 				}
 			}
 		}
-		let check = sha256::Hash::hash(&entropy[0..nb_bytes_entropy]);
-		for i in 0..nb_bytes_entropy / 4 {
-			if bits[8 * nb_bytes_entropy + i] != ((check[i / 8] & (1 << (7 - (i % 8)))) > 0) {
-				return Err(Error::InvalidChecksum);
-			}
-		}
+		// let check = sha256::Hash::hash(&entropy[0..nb_bytes_entropy]);
+		// for i in 0..nb_bytes_entropy / 4 {
+		// 	if bits[8 * nb_bytes_entropy + i] != ((check[i / 8] & (1 << (7 - (i % 8)))) > 0) {
+		// 		return Err(Error::InvalidChecksum);
+		// 	}
+		// }
 
 		Ok(Mnemonic {
 			lang,
